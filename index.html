@@ -16,8 +16,6 @@
     <style>
         /* ============================================
            DESIGN TOKENS
-           A restrained palette: warm off-white, deep
-           navy ink, cobalt accent, muted teal.
            ============================================ */
         :root {
             --bg: #FAF7F2;
@@ -32,7 +30,6 @@
             --border: #E5DFD4;
             --border-strong: #CFC6B6;
 
-            /* Status colors used in the hero dashboard */
             --success: #2F7D5B;
             --danger: #B33A3A;
             --warning: #C08A3E;
@@ -367,7 +364,6 @@
             transform: translateY(-1px);
         }
 
-        /* Mobile nav — CSS-only checkbox hack */
         .nav__toggle {
             position: absolute;
             opacity: 0;
@@ -480,7 +476,6 @@
             gap: 0.85rem;
         }
 
-        /* Hero visual — CSS-only testing dashboard */
         .dashboard {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -759,7 +754,8 @@
 
         .tools__grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            /* 4 columns originally, now 3 since API Testing is hidden */
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
         }
 
@@ -804,6 +800,17 @@
             background: var(--ink);
             color: var(--bg);
             border-color: var(--ink);
+        }
+
+        /* ============================================
+           HIDDEN TOOL GROUP
+           The "API Testing" card is hidden visually
+           but kept in the markup for future use.
+           To reveal it again, remove this rule and
+           restore grid-template-columns to 4.
+           ============================================ */
+        .tool-group--hidden {
+            display: none;
         }
 
         /* ============================================
@@ -1497,11 +1504,7 @@
 </head>
 <body>
 
-    <!-- ============================================
-         NAVIGATION
-         Sticky top bar with brand, links, CTA.
-         Mobile menu uses a hidden checkbox + label.
-         ============================================ -->
+    <!-- NAVIGATION -->
     <header class="nav" role="banner">
         <div class="container nav__inner">
             <a href="#home" class="brand" aria-label="Gayane Kamavosyan — home">
@@ -1531,10 +1534,7 @@
 
     <main>
 
-        <!-- ============================================
-             HERO
-             Value proposition + CSS-only test dashboard.
-             ============================================ -->
+        <!-- HERO -->
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero__grid">
@@ -1570,7 +1570,6 @@
                         </div>
                     </div>
 
-                    <!-- CSS-only testing dashboard visual -->
                     <aside class="dashboard" aria-label="Test execution report preview">
                         <div class="dashboard__header">
                             <span class="dashboard__title">Test Execution Report</span>
@@ -1632,10 +1631,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             ABOUT
-             Professional introduction grounded in CV.
-             ============================================ -->
+        <!-- ABOUT -->
         <section class="about" id="about">
             <div class="container">
                 <div class="section-head">
@@ -1678,10 +1674,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             EXPERTISE / SERVICES
-             Eight service cards with inline SVG icons.
-             ============================================ -->
+        <!-- EXPERTISE / SERVICES -->
         <section class="expertise" id="expertise">
             <div class="container">
                 <div class="section-head center">
@@ -1771,10 +1764,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             TOOLS & TECHNOLOGIES
-             Grouped tags — honest, CV-aligned.
-             ============================================ -->
+        <!-- TOOLS & TECHNOLOGIES -->
         <section class="tools" id="tools">
             <div class="container">
                 <div class="section-head center">
@@ -1816,7 +1806,8 @@
                         </div>
                     </div>
 
-                    <div class="tool-group">
+                    <!-- Hidden: API Testing card (kept in markup for future use) -->
+                    <div class="tool-group tool-group--hidden" aria-hidden="true">
                         <h3 class="tool-group__title">API Testing</h3>
                         <div class="tool-tags">
                             <span class="tool-tag">API validation</span>
@@ -1854,10 +1845,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             EXPERIENCE
-             Vertical timeline with two roles.
-             ============================================ -->
+        <!-- EXPERIENCE -->
         <section class="experience" id="experience">
             <div class="container">
                 <div class="section-head">
@@ -1903,10 +1891,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             PORTFOLIO / CASE STUDIES
-             Three representative case studies.
-             ============================================ -->
+        <!-- PORTFOLIO / CASE STUDIES -->
         <section class="portfolio" id="portfolio">
             <div class="container">
                 <div class="section-head center">
@@ -1993,10 +1978,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             WHY WORK WITH ME
-             Four benefit cards on dark background.
-             ============================================ -->
+        <!-- WHY WORK WITH ME -->
         <section class="why">
             <div class="container">
                 <div class="section-head center">
@@ -2034,9 +2016,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             EDUCATION & LANGUAGES
-             ============================================ -->
+        <!-- EDUCATION & LANGUAGES -->
         <section class="education" id="education">
             <div class="container">
                 <div class="section-head">
@@ -2084,10 +2064,7 @@
             </div>
         </section>
 
-        <!-- ============================================
-             CONTACT
-             Direct email + LinkedIn — no fake form.
-             ============================================ -->
+        <!-- CONTACT -->
         <section class="contact" id="contact">
             <div class="container">
                 <div class="contact__grid">
@@ -2142,9 +2119,7 @@
 
     </main>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__grid">
@@ -2192,4 +2167,3 @@
 
 </body>
 </html>
-
